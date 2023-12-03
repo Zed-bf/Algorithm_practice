@@ -28,7 +28,7 @@ public:
         //当 node 被选中时，node 的左右孩子都不能被选中，故 node 被选中情况下子树上被选中点的最大权值和为 l 和 r 
         //不被选中的最大权值和相加，即 f(o)=g(l)+g(r)。
         // 当 node 不被选中时，node 的左右孩子可以被选中，也可以不被选中。对于 node 的某个具体的孩子 x，它对 node 的贡献是 x 被选中和不被选中情况下权值和的较大值。
-        //故 g(o)=max⁡{f(l),g(l)}+max⁡{f(r),g(r)}g(o) = \max \{ f(l) , g(l)\}+\max\{ f(r) , g(r) \}g(o)=max{f(l),g(l)}+max{f(r),g(r)}
+        // 故 g(o)=max⁡{f(l),g(l)}+max⁡{f(r),g(r)}
         f[node] = node->val + g[node->left] + g[node->right];
         g[node] = max(f[node->left], g[node->left]) + max(f[node->right], g[node->right]);
     }
